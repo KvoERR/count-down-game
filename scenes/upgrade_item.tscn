@@ -25,6 +25,10 @@ text = "+1 per click"
 layout_mode = 2
 text = "Cost: 10"
 
+[node name="Currancy" type="Label" parent="Info" unique_id=1286515368]
+layout_mode = 2
+text = "Currancy"
+
 [node name="BuyButton" type="Button" parent="." unique_id=1391862732]
 layout_mode = 2
 size_flags_horizontal = 10

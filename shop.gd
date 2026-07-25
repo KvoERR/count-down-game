@@ -56,11 +56,11 @@ var upgrades = [
 		"value": -100,
 		"currency": "waste"
 		
-	}
+	},
 ]
 
-@onready var click_list = $ShopPanel/Content/Columns/ClickColumn/ClickList
-@onready var auto_list = $ShopPanel/Content/Columns/AutoColumn/Autolist
+@onready var click_list = $ShopPanel/ScrollContainer/Content/Columns/ClickColumn/ClickList
+@onready var auto_list = $ShopPanel/ScrollContainer/Content/Columns/AutoColumn/Autolist
 
 
 func _ready():

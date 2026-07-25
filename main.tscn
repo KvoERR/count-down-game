@@ -85,59 +85,69 @@ anchor_bottom = 0.5
 offset_left = -250.0
 offset_top = -200.0
 offset_right = 250.0
-offset_bottom = 200.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="VBoxContainer" parent="Shop/ShopPanel" unique_id=735067614]
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop/ShopPanel" unique_id=1469357629]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -108.5
-offset_right = 108.5
-offset_bottom = 40.0
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -175.0
+offset_right = 112.5
+offset_bottom = 175.0
 grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="Content" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer" unique_id=735067614]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 100
 
-[node name="Columns" type="HBoxContainer" parent="Shop/ShopPanel/Content" unique_id=920407680]
+[node name="Columns" type="HBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content" unique_id=920407680]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns" unique_id=1418396021]
+[node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content/Columns" unique_id=1418396021]
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=1130220032]
+[node name="HSeparator2" type="HSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/ClickColumn" unique_id=1130220032]
 layout_mode = 2
 
-[node name="BonusPerClick" type="Label" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=656770296]
+[node name="BonusPerClick" type="Label" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/ClickColumn" unique_id=656770296]
 layout_mode = 2
 text = "Bonus per click"
 
-[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=1368937471]
+[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/ClickColumn" unique_id=1368937471]
 layout_mode = 2
 
-[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=1923043095]
+[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/ClickColumn" unique_id=1923043095]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="VSeparator" type="VSeparator" parent="Shop/ShopPanel/Content/Columns" unique_id=857831960]
+[node name="VSeparator" type="VSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns" unique_id=857831960]
 layout_mode = 2
 
-[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns" unique_id=1755561017]
+[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content/Columns" unique_id=1755561017]
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=110967927]
+[node name="HSeparator2" type="HSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/AutoColumn" unique_id=110967927]
 layout_mode = 2
 
-[node name="AutoClick" type="Label" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=1121322371]
+[node name="AutoClick" type="Label" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/AutoColumn" unique_id=1121322371]
 layout_mode = 2
 text = "Auto click"
 
-[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=1102420493]
+[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/AutoColumn" unique_id=1102420493]
 layout_mode = 2
 
-[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=576045225]
+[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/AutoColumn" unique_id=576045225]
 layout_mode = 2
 theme_override_constants/separation = 10
 
