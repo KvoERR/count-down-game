@@ -13,7 +13,10 @@ extends Control
 
 @onready var shop_button = $Game/ShopButton
 
+@onready var animated_bg = $Background
+
 func _ready():
+	animated_bg.play("default")
 	timer.start()
 	timer.timeout.connect(_on_timer_timeout)
 	auto_timer.timeout.connect(_on_auto_timer_timeout)
@@ -22,9 +25,7 @@ func _ready():
 	
 	shop.upgrade_buy.connect(_on_upgrade_buy)
 	
-
 	update_ui()
-
 
 func _on_click_button_pressed():
 	game.click()
@@ -37,7 +38,8 @@ func _on_timer_timeout():
 
 
 func _on_auto_timer_timeout():
-	game.auto_tick()
+	game.auto_click()
+	
 	update_ui()
 
 func _on_bonus_achieved(amount):
@@ -65,8 +67,7 @@ func update_counter():
 func _on_shop_button_pressed():
 	shop_button.visible = false
 	$Shop/ShopPanel.visible = true
-
-
+	
 func _on_close_button_pressed():
 	$Shop/ShopPanel.visible = false
 	shop_button.visible = true
