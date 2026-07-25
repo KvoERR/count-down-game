@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-<<<<<<< HEAD
 config/name="clicker count down"
+run/main_scene="uid://bjn4naudn08u5"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+<<<<<<<HEADconfig/name="clicker count down"
 
 [display]
 
@@ -27,13 +28,5 @@ window/stretch/aspect="expand"
 [rendering]
 
 rendering_device/driver.windows="d3d12"
-=======
-config/name="count down game"
-config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
-
-[rendering]
-
->>>>>>> c5102cd1e6fccac3b8bf7d98ac53c5ef847b822b
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
