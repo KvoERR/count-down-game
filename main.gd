@@ -15,6 +15,8 @@ extends Control
 
 @onready var animated_bg = $Background
 @onready var click_button = $Game/Earth
+
+@onready var shop_sound = $ShopSound
 func _ready():
 	animated_bg.play("default")
 	timer.start()
@@ -48,6 +50,7 @@ func _on_bonus_achieved(amount):
 func _on_upgrade_buy(data):
 	if interface.spend_resource(data.currency, data.price):
 		game.apply_upgrade(data)
+		shop_sound.play()
 		update_ui()
 		
 func update_stats():
@@ -69,6 +72,7 @@ func _on_shop_button_pressed():
 	shop_button.visible = false
 	$Shop/ShopPanel.visible = true
 	click_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	shop_sound.play()
 func _on_close_button_pressed():
 	$Shop/ShopPanel.visible = false
 	shop_button.visible = true

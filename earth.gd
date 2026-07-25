@@ -1,9 +1,12 @@
 extends Button
 
+@onready var click_sound = $ClickSound
+
 func _ready():
 	pressed.connect(_on_pressed)
 
 func _on_pressed():
+	click_sound.play()
 	var tween = create_tween()
 	tween.set_parallel(true)  # Все анимации одновременно
 	

@@ -4,6 +4,8 @@ extends Node
 @onready var war = $WarLabel
 @onready var death = $DeathLabel
 
+@onready var bonus_sound = $BonusSound
+
 var waste_count = 0
 var war_count = 0
 var death_count = 0
@@ -35,7 +37,8 @@ func add_resource(coef):
 		
 		# Создаем всплывающее число
 		create_floating_number(label.global_position, "+" + str(amount), type_name)
-
+		bonus_sound.play()
+		
 func spend_resource(currency, amount):
 	match currency:
 		"waste":

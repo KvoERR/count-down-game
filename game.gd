@@ -3,6 +3,8 @@ extends Node
 @onready var earth = $Earth
 @onready var label = $CounterLabel
 
+@onready var tick_sound = $TickSound
+
 signal bonus_achieved(amount)
 
 var clicks = 85000
@@ -39,6 +41,7 @@ func click():
 func tick(time_to_click):
 	clicks += int(time_to_click)
 	create_floating_number(label.global_position+Vector2(40, 0), "+"+str(int(time_to_click)), Color(0,0,1))
+	tick_sound.play()
 	if clicks < 0:
 		clicks = 0
 
