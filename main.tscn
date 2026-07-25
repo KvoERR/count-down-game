@@ -1,6 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene load_steps=9 format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://drjqrhoxmabvg" path="res://assets/earth.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://bxldgwnejwu4q" path="res://assets/fon.png" id="3_h2yge"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xm2m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2yge"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bvp3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lquwl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7mycd"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -27,6 +39,7 @@ scale = Vector2(2.25, 2.25)
 text = "Клики: 0"
 
 [node name="ClickButton" type="Button" parent="."]
+texture_filter = 1
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -34,12 +47,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -27.0
-offset_top = -19.5
-offset_right = 27.0
-offset_bottom = 19.5
+offset_left = -151.0
+offset_top = -150.0
+offset_right = 146.51501
+offset_bottom = 153.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_0xm2m")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_h2yge")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_1bvp3")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_lquwl")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_7mycd")
+icon = ExtResource("2_0xm2m")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="TextureRect" type="TextureRect" parent="ClickButton"]
+visible = false
+layout_mode = 0
+offset_top = 0.5
+offset_right = 64.0
+offset_bottom = 64.5
+texture = ExtResource("2_0xm2m")
 
 [node name="AutoClickTimer" type="Timer" parent="."]
 autostart = true
@@ -109,6 +139,24 @@ grow_horizontal = 0
 text = "✕"
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Backround" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_top = 0.5
+offset_right = 1154.0
+offset_bottom = 647.0
+mouse_filter = 2
+texture = ExtResource("3_h2yge")
+
+[node name="Backround2" type="TextureRect" parent="."]
+z_index = -1
+layout_mode = 0
+offset_top = 1.0
+offset_right = 1154.0
+offset_bottom = 647.5
+mouse_filter = 2
+texture = ExtResource("3_h2yge")
 
 [connection signal="pressed" from="ClickButton" to="." method="_on_click_button_pressed"]
 [connection signal="timeout" from="AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
