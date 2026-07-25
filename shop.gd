@@ -7,34 +7,41 @@ const UpgradeScene = preload("res://scenes/upgrade_item.tscn")
 var upgrades = [
 	{
 		"type": "click",
-		"name": "Палец",
+		"name": "Cut Tree",
 		"desc": "+1 за клик",
 		"price": 10,
 		"value": 1
 	},
 	{
 		"type": "click",
-		"name": "Молот",
+		"name": "Drill Oil",
+		"desc": "+5 за клик",
+		"price": 100,
+		"value": 5
+	},
+		{
+		"type": "click",
+		"name": "Mass Consumption",
 		"desc": "+5 за клик",
 		"price": 100,
 		"value": 5
 	},
 	{
 		"type": "auto",
-		"name": "Робот",
+		"name": "Factory",
 		"desc": "-1/сек",
 		"price": 50,
 		"value": -1
 	},
 	{
 		"type": "auto",
-		"name": "Завод",
+		"name": "Industrial Complex",
 		"desc": "-10/сек",
 		"price": 500,
 		"value": -10
 	},
 	{
-		"type": "auto",
+		"type": "Megalopolis",
 		"name": "бомба",
 		"desc": "-100/сек",
 		"price": 500,
@@ -51,22 +58,25 @@ func _ready():
 
 
 func fill_shop():
-	for child in click_list.get_children():
-		child.queue_free()
+	for i in upgrades.size():
+		var upgrade = upgrades[i]
 
-	for child in auto_list.get_children():
-		child.queue_free()
-
-	for upgrade in upgrades:
 		var item = UpgradeScene.instantiate()
-
 		item.setup(upgrade)
 		item.buy_pressed.connect(_on_buy_pressed)
 
+		var target_list
+
 		if upgrade.type == "click":
-			click_list.add_child(item)
+			target_list = click_list
 		else:
-			auto_list.add_child(item)
+			target_list = auto_list
+
+		target_list.add_child(item)
+
+		var separator = HSeparator.new()
+		separator.custom_minimum_size.y = 8
+		target_list.add_child(separator)
 
 
 func _on_buy_pressed(data):

@@ -14,7 +14,7 @@ extends Control
 @onready var shop_button = $Game/ShopButton
 
 @onready var animated_bg = $Background
-
+@onready var click_button = $Game/Earth
 func _ready():
 	animated_bg.play("default")
 	timer.start()
@@ -67,7 +67,8 @@ func update_counter():
 func _on_shop_button_pressed():
 	shop_button.visible = false
 	$Shop/ShopPanel.visible = true
-	
+	click_button.mouse_filter = Control.MOUSE_FILTER_IGNORE
 func _on_close_button_pressed():
 	$Shop/ShopPanel.visible = false
 	shop_button.visible = true
+	click_button.mouse_filter = Control.MOUSE_FILTER_STOP
