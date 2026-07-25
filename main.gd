@@ -50,8 +50,8 @@ func _on_upgrade_buy(data):
 		update_ui()
 
 func update_stats():
-	click_stats.text = "💥 Урон за клик: " + str(game.click_power)
-	auto_stats.text = "⚙️ Автоурон: " + str(-game.auto_clicks) + "/сек"
+	click_stats.text = " " + str(game.click_power)
+	auto_stats.text = " " + str(-game.auto_clicks) + "/sec"
 	
 
 func update_ui():
