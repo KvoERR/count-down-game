@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene load_steps=11 format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="Texture2D" uid="uid://drjqrhoxmabvg" path="res://assets/earth.png" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://bxldgwnejwu4q" path="res://assets/fon.png" id="3_h2yge"]
+[ext_resource type="FontFile" uid="uid://b3emhib22rg6s" path="res://assets/font/GeistPixel-Regular-VariableFont_ELSH.ttf" id="2_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://drjqrhoxmabvg" path="res://assets/img/earth.png" id="3_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://di47h1m717it4" path="res://assets/img/interface.png" id="3_lquwl"]
+[ext_resource type="Texture2D" uid="uid://bxldgwnejwu4q" path="res://assets/img/fon.png" id="4_1bvp3"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xm2m"]
 
@@ -23,19 +25,86 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
+[node name="Interface" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 3.0
+offset_top = 2.0
+offset_right = 1145.0
+offset_bottom = 635.0
+
+[node name="LackCount" type="Label" parent="Interface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.64100003
+anchor_top = 0.83000004
+anchor_right = 0.64400005
+anchor_bottom = 0.83000004
+offset_left = -328.02203
+offset_top = -497.39
+offset_right = -160.47809
+offset_bottom = -388.39
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_1bvp3")
+theme_override_font_sizes/font_size = 40
+text = "0
+"
+
+[node name="WarCount" type="Label" parent="Interface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.64100003
+anchor_top = 0.83000004
+anchor_right = 0.64400005
+anchor_bottom = 0.83000004
+offset_left = -497.02203
+offset_top = -497.39
+offset_right = -329.47815
+offset_bottom = -388.39
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_1bvp3")
+theme_override_font_sizes/font_size = 40
+text = "0
+"
+
+[node name="WasteCount" type="Label" parent="Interface"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.64100003
+anchor_top = 0.83000004
+anchor_right = 0.64400005
+anchor_bottom = 0.83000004
+offset_left = -652.02203
+offset_top = -497.39
+offset_right = -484.4781
+offset_bottom = -388.39
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_1bvp3")
+theme_override_font_sizes/font_size = 40
+text = "0
+"
+
+[node name="Env" type="TextureRect" parent="Interface"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = -1.5
+offset_right = 1148.0
+offset_bottom = 648.0
+texture = ExtResource("3_lquwl")
+
 [node name="CounterLabel" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.633
-anchor_top = 0.832
-anchor_right = 0.88900006
-anchor_bottom = 0.91
-offset_left = -0.21600342
-offset_top = -0.13598633
-offset_right = -218.36035
-offset_bottom = -27.679993
+anchor_left = 0.64100003
+anchor_top = 0.83000004
+anchor_right = 0.64400005
+anchor_bottom = 0.83000004
+offset_left = 3.512024
+offset_top = -10.470032
+offset_right = 171.05597
+offset_bottom = 50.52997
 grow_horizontal = 2
-scale = Vector2(2.25, 2.25)
+theme_override_fonts/font = ExtResource("2_1bvp3")
+theme_override_font_sizes/font_size = 40
 text = "Клики: 0"
 
 [node name="ClickButton" type="Button" parent="."]
@@ -58,18 +127,10 @@ theme_override_styles/pressed = SubResource("StyleBoxEmpty_h2yge")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_1bvp3")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_lquwl")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_7mycd")
-icon = ExtResource("2_0xm2m")
+icon = ExtResource("3_1bvp3")
 flat = true
 icon_alignment = 1
 expand_icon = true
-
-[node name="TextureRect" type="TextureRect" parent="ClickButton"]
-visible = false
-layout_mode = 0
-offset_top = 0.5
-offset_right = 64.0
-offset_bottom = 64.5
-texture = ExtResource("2_0xm2m")
 
 [node name="AutoClickTimer" type="Timer" parent="."]
 autostart = true
@@ -142,21 +203,14 @@ text = "✕"
 
 [node name="Backround" type="TextureRect" parent="."]
 z_index = -1
+z_as_relative = false
+texture_filter = 1
 layout_mode = 0
 offset_top = 0.5
 offset_right = 1154.0
 offset_bottom = 647.0
 mouse_filter = 2
-texture = ExtResource("3_h2yge")
-
-[node name="Backround2" type="TextureRect" parent="."]
-z_index = -1
-layout_mode = 0
-offset_top = 1.0
-offset_right = 1154.0
-offset_bottom = 647.5
-mouse_filter = 2
-texture = ExtResource("3_h2yge")
+texture = ExtResource("4_1bvp3")
 
 [connection signal="pressed" from="ClickButton" to="." method="_on_click_button_pressed"]
 [connection signal="timeout" from="AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
