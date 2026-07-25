@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://duw6gmx8yjg6t"]
+
+[ext_resource type="Script" uid="uid://dhsumpgtj8l7t" path="res://scenes/upgrade_item.gd" id="1_5bs5i"]
+
+[node name="UpgradeItem" type="HBoxContainer" unique_id=1503403409]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 30
+script = ExtResource("1_5bs5i")
+
+[node name="Info" type="VBoxContainer" parent="." unique_id=675859045]
+layout_mode = 2
+
+[node name="Name" type="Label" parent="Info" unique_id=372746890]
+layout_mode = 2
+text = "Cut the tree"
+
+[node name="Description" type="Label" parent="Info" unique_id=1076726740]
+layout_mode = 2
+text = "+1 per click"
+
+[node name="Price" type="Label" parent="Info" unique_id=307817758]
+layout_mode = 2
+text = "Cost: 10"
+
+[node name="BuyButton" type="Button" parent="." unique_id=1391862732]
+layout_mode = 2
+text = "Buy"
