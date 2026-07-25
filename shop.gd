@@ -9,43 +9,53 @@ var upgrades = [
 		"type": "click",
 		"name": "Cut Tree",
 		"desc": "+1 за клик",
-		"price": 10,
-		"value": 1
+		"price": 1,
+		"value": 1,
+		"currency": "waste"
 	},
 	{
 		"type": "click",
 		"name": "Drill Oil",
 		"desc": "+5 за клик",
 		"price": 100,
-		"value": 5
+		"value": 5,
+		"currency": "waste"
 	},
 		{
 		"type": "click",
 		"name": "Mass Consumption",
 		"desc": "+5 за клик",
 		"price": 100,
-		"value": 5
+		"value": 5,
+		"currency": "waste"
+		
 	},
 	{
 		"type": "auto",
 		"name": "Factory",
 		"desc": "-1/сек",
 		"price": 50,
-		"value": -1
+		"value": -1,
+		"currency": "waste"
+		
 	},
 	{
 		"type": "auto",
 		"name": "Industrial Complex",
 		"desc": "-10/сек",
 		"price": 500,
-		"value": -10
+		"value": -10,
+		"currency": "waste"
+		
 	},
 	{
-		"type": "Megalopolis",
-		"name": "бомба",
+		"type": "auto",
+		"name": "Megalopolis",
 		"desc": "-100/сек",
 		"price": 500,
-		"value": -100
+		"value": -100,
+		"currency": "waste"
+		
 	}
 ]
 

@@ -46,9 +46,10 @@ func _on_bonus_achieved(amount):
 	interface.add_resource(amount)
 
 func _on_upgrade_buy(data):
-	if game.buy_upgrade(data):
+	if interface.spend_resource(data.currency, data.price):
+		game.apply_upgrade(data)
 		update_ui()
-
+		
 func update_stats():
 	click_stats.text = " " + str(game.click_power)
 	auto_stats.text = " " + str(-game.auto_clicks) + "/sec"

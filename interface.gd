@@ -36,6 +36,28 @@ func add_resource(coef):
 		# Создаем всплывающее число
 		create_floating_number(label.global_position, "+" + str(amount), type_name)
 
+func spend_resource(currency, amount):
+	match currency:
+		"waste":
+			if waste_count < amount:
+				return false
+			waste_count -= amount
+			waste.text = str(waste_count)
+
+		"war":
+			if war_count < amount:
+				return false
+			war_count -= amount
+			war.text = str(war_count)
+
+		"death":
+			if death_count < amount:
+				return false
+			death_count -= amount
+			death.text = str(death_count)
+
+	return true
+
 func create_floating_number(position, number_text, icon):
 	# Создаем временную надпись
 	var label = Label.new()

@@ -36,18 +36,11 @@ func tick(time_to_click):
 	if clicks < 0:
 		clicks = 0
 
-func buy_upgrade(data):
-	if clicks < data.price:
-		return false
-
-	clicks -= data.price
-
+func apply_upgrade(data):
 	if data.type == "click":
 		click_power += data.value
 	else:
 		auto_clicks += data.value
-
-	return true
 	
 func create_floating_number(position):
 	# Создаем временную надпись
