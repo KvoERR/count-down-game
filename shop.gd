@@ -32,6 +32,13 @@ var upgrades = [
 		"desc": "-10/сек",
 		"price": 500,
 		"value": -10
+	},
+	{
+		"type": "auto",
+		"name": "бомба",
+		"desc": "-100/сек",
+		"price": 500,
+		"value": -100
 	}
 ]
 

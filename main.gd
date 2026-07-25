@@ -7,6 +7,8 @@ extends Control
 @onready var timer = $Game/Timer
 @onready var auto_timer = $Game/AutoClickTimer
 
+@onready var click_stats = $Game/ClickStats
+@onready var auto_stats = $Game/AutoStats
 
 func _ready():
 	timer.start()
@@ -37,10 +39,13 @@ func _on_upgrade_buy(data):
 	if game.buy_upgrade(data):
 		update_ui()
 
-
+func update_stats():
+	click_stats.text = "💥 Урон за клик: " + str(game.click_power)
+	auto_stats.text = "⚙️ Автоурон: " + str(-game.auto_clicks) + "/сек"
+	
 func update_ui():
 	update_counter()
-
+	update_stats()
 
 func update_counter():
 	var seconds = game.clicks / 1000

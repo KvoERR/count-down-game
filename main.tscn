@@ -30,16 +30,15 @@ script = ExtResource("1_ig7tw")
 [node name="Shop" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
 
-[node name="ShopPanel" type="Panel" parent="Shop"]
+[node name="ShopPanel" type="Panel" parent="Shop" unique_id=2079763257]
 visible = false
-anchors_preset = 8
+anchors_preset = 4
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
 offset_top = -250.0
-offset_right = 200.0
+offset_right = 400.0
 offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -200,6 +199,32 @@ offset_right = 1151.0
 offset_bottom = 645.0
 mouse_filter = 2
 texture = ExtResource("7_272bh")
+
+[node name="ClickStats" type="Label" parent="Game" unique_id=1878796662]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -122.0
+offset_bottom = 75.0
+grow_horizontal = 0
+text = "ClickStatsLabel
+Text:
+Damage/click: 1"
+
+[node name="AutoStats" type="Label" parent="Game" unique_id=510925618]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -37.5
+offset_bottom = 37.5
+grow_horizontal = 0
+grow_vertical = 2
+text = "AutoStatsLabel
+Text:
+Damage/sec: 0"
 
 [connection signal="pressed" from="Shop/ShopPanel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Game/ClickButton" to="." method="_on_click_button_pressed"]

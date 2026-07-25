@@ -26,7 +26,6 @@ func auto_tick():
 	if clicks < 0:
 		clicks = 0
 
-
 func buy_upgrade(data):
 	if clicks < data.price:
 		return false
