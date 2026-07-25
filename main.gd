@@ -27,14 +27,14 @@ var upgrades = [
 		"name": "Робот",
 		"desc": "+1/сек",
 		"price": 50,
-		"value": 1
+		"value": -1
 	},
 	{
 		"type": "auto",
 		"name": "Завод",
 		"desc": "+10/сек",
 		"price": 500,
-		"value": 10
+		"value": -10
 	}
 ]
 
