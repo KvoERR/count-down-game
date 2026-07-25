@@ -74,13 +74,13 @@ script = SubResource("GDScript_dg77c")
 [node name="Shop" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
 
-[node name="ShopPanel" type="Panel" parent="Shop"]
+[node name="ShopPanel" type="Panel" parent="Shop" unique_id=2079763257]
 visible = false
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -200.0
-offset_right = 300.0
+offset_right = 350.0
 offset_bottom = 200.0
 grow_vertical = 2
 
@@ -95,21 +95,31 @@ layout_mode = 2
 [node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
+[node name="BonusPerClick" type="Label" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=656770296]
 layout_mode = 2
 text = "Bonus per click"
 
-[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
+[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=1368937471]
 layout_mode = 2
 
-[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns"]
+[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=1923043095]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
+[node name="VSeparator" type="VSeparator" parent="Shop/ShopPanel/Content/Columns" unique_id=857831960]
+layout_mode = 2
+
+[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns" unique_id=1755561017]
+layout_mode = 2
+
+[node name="AutoClick" type="Label" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=1121322371]
 layout_mode = 2
 text = "Auto click"
 
-[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
+[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=1102420493]
+layout_mode = 2
+
+[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=576045225]
+
 layout_mode = 2
 
 [node name="CloseButton" type="Button" parent="Shop/ShopPanel"]
@@ -117,8 +127,8 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
+offset_left = -30.0
+offset_bottom = 31.0
 grow_horizontal = 0
 text = "✕"
 

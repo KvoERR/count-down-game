@@ -25,4 +25,6 @@ text = "Cost: 10"
 
 [node name="BuyButton" type="Button" parent="." unique_id=1391862732]
 layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 5
 text = "Buy"
