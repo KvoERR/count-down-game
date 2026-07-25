@@ -4,8 +4,8 @@
 
 [node name="UpgradeItem" type="HBoxContainer" unique_id=1503403409]
 custom_minimum_size = Vector2(80, 0)
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 190.0
+offset_bottom = 122.0
 theme_override_constants/separation = 40
 script = ExtResource("1_5bs5i")
 
@@ -25,11 +25,8 @@ text = "+1 per click"
 layout_mode = 2
 text = "Cost: 10"
 
-[node name="Currancy" type="Label" parent="Info" unique_id=1286515368]
-layout_mode = 2
-text = "Currancy"
-
 [node name="BuyButton" type="Button" parent="." unique_id=1391862732]
+custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 10
 size_flags_vertical = 5

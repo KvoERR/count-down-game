@@ -12,9 +12,22 @@ var data = {}
 func setup(upgrade_data):
 	data = upgrade_data
 
-	$Info/Name.text = data.name
-	$Info/Description.text = data.desc
-	$Info/Price.text = "Цена: " + str(data.price)
+	name_label.text = data.name
+	desc_label.text = data.desc
+
+	var icon = ""
+
+	match data.currency:
+		"waste":
+			icon = "🗑️"
+		"war":
+			icon = "⚔️"
+		"death":
+			icon = "💀"
+		_:
+			icon = "❓"
+
+	price_label.text = icon + " " + str(data.price)
 
 func _ready():
 	buy_button.pressed.connect(_on_buy_pressed)
