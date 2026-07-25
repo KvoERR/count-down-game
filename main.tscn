@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene load_steps=25 format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dhosukvltmdbj" path="res://shop.gd" id="2_0xm2m"]
@@ -42,10 +42,6 @@ animations = [{
 "speed": 20.0
 }]
 
-[sub_resource type="GDScript" id="GDScript_dg77c"]
-script/source = "extends AnimatedSprite2D
-"
-
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
@@ -71,10 +67,7 @@ texture_filter = 1
 position = Vector2(576.5, 329)
 scale = Vector2(8.9765625, 10.40625)
 sprite_frames = SubResource("SpriteFrames_ycdy4")
-frame = 4
-frame_progress = 0.20609315
 speed_scale = 0.5
-script = SubResource("GDScript_dg77c")
 
 [node name="ShopSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(-411, -159)
@@ -176,16 +169,14 @@ text = "✕"
 script = ExtResource("2_h2yge")
 
 [node name="CounterLabel" type="Label" parent="Game"]
-anchors_preset = -1
-anchor_left = 0.633
-anchor_top = 0.832
-anchor_right = 0.88900006
-anchor_bottom = 0.91
-offset_left = 17.783997
-offset_top = -41.135986
-offset_right = -98.12805
-offset_bottom = -28.679993
-grow_horizontal = 2
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -364.0
+offset_top = 30.0
+offset_right = -185.0
+offset_bottom = 93.0
+grow_horizontal = 0
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 45
 text = "Клики: 0"
@@ -237,33 +228,19 @@ text = "Shop"
 wait_time = 10.0
 
 [node name="ClickStats" type="Label" parent="Game"]
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -592.0
-offset_top = -617.0
-offset_right = -569.0
-offset_bottom = -564.0
-grow_horizontal = 0
-grow_vertical = 0
+offset_left = 227.0
+offset_top = 124.0
+offset_right = 250.0
+offset_bottom = 177.0
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="AutoStats" type="Label" parent="Game"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -387.0
-offset_top = -293.0
-offset_right = -364.0
-offset_bottom = -240.0
-grow_horizontal = 0
-grow_vertical = 2
+offset_left = 30.0
+offset_top = 124.0
+offset_right = 53.0
+offset_bottom = 177.0
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"
@@ -277,46 +254,28 @@ max_distance = 2008.0
 script = ExtResource("7_5vw27")
 
 [node name="DeathLabel" type="Label" parent="Interface"]
-anchors_preset = -1
-anchor_left = 0.633
-anchor_top = 0.832
-anchor_right = 0.88900006
-anchor_bottom = 0.91
-offset_left = -328.216
-offset_top = -509.136
-offset_right = -523.1279
-offset_bottom = -506.67993
-grow_horizontal = 2
+offset_left = 411.0
+offset_top = 30.0
+offset_right = 434.0
+offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="WarLabel" type="Label" parent="Interface"]
-anchors_preset = -1
-anchor_left = 0.633
-anchor_top = 0.832
-anchor_right = 0.88900006
-anchor_bottom = 0.91
-offset_left = -494.216
-offset_top = -509.136
-offset_right = -689.12787
-offset_bottom = -506.68
-grow_horizontal = 2
+offset_left = 235.0
+offset_top = 30.0
+offset_right = 258.0
+offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="WasteLabel" type="Label" parent="Interface"]
-anchors_preset = -1
-anchor_left = 0.633
-anchor_top = 0.832
-anchor_right = 0.88900006
-anchor_bottom = 0.91
-offset_left = -652.216
-offset_top = -509.136
-offset_right = -847.12805
-offset_bottom = -506.68
-grow_horizontal = 2
+offset_left = 95.0
+offset_top = 30.0
+offset_right = 118.0
+offset_bottom = 83.0
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"

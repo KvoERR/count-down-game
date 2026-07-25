@@ -26,6 +26,8 @@ func auto_click():
 			bonus_level -= bonus_delta
 	if clicks < 0:
 		clicks = 0
+		game_end()
+		
 		
 func click():
 	clicks -= click_power
@@ -37,6 +39,8 @@ func click():
 
 	if clicks < 0:
 		clicks = 0
+		game_end()
+		
 
 func tick(time_to_click):
 	clicks += int(time_to_click)
@@ -70,3 +74,6 @@ func create_floating_number(position, text, color = Color(1, 1, 1)):
 	tween.parallel().tween_property(label, "position:y", position.y + 100, 1.2)
 	tween.parallel().tween_property(label, "modulate:a", 0, 1.2)
 	tween.tween_callback(label.queue_free)
+	
+func game_end():
+	get_tree().change_scene_to_file("res://scenes/end.tscn")
