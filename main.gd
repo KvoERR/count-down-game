@@ -1,6 +1,7 @@
 extends Control
 
 @onready var game = $Game
+@onready var interface = $Interface
 @onready var shop = $Shop
 
 @onready var counter = $Game/CounterLabel
@@ -15,7 +16,10 @@ func _ready():
 	timer.timeout.connect(_on_timer_timeout)
 	auto_timer.timeout.connect(_on_auto_timer_timeout)
 	
+	game.bonus_achieved.connect(_on_bonus_achieved)
+	
 	shop.upgrade_buy.connect(_on_upgrade_buy)
+	
 
 	update_ui()
 
@@ -26,7 +30,7 @@ func _on_click_button_pressed():
 
 
 func _on_timer_timeout():
-	game.tick()
+	game.tick(timer.wait_time)
 	update_ui()
 
 
@@ -34,6 +38,8 @@ func _on_auto_timer_timeout():
 	game.auto_tick()
 	update_ui()
 
+func _on_bonus_achieved(amount):
+	interface.add_resource(amount)
 
 func _on_upgrade_buy(data):
 	if game.buy_upgrade(data):
@@ -60,3 +66,4 @@ func _on_shop_button_pressed():
 
 func _on_close_button_pressed():
 	$Shop/ShopPanel.visible = false
+	
