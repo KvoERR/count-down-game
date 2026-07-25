@@ -10,6 +10,8 @@ extends Control
 @onready var click_stats = $Game/ClickStats
 @onready var auto_stats = $Game/AutoStats
 
+@onready var shop_button = $Game/ShopButton
+
 func _ready():
 	timer.start()
 	timer.timeout.connect(_on_timer_timeout)
@@ -43,6 +45,7 @@ func update_stats():
 	click_stats.text = "💥 Урон за клик: " + str(game.click_power)
 	auto_stats.text = "⚙️ Автоурон: " + str(-game.auto_clicks) + "/сек"
 	
+
 func update_ui():
 	update_counter()
 	update_stats()
@@ -53,10 +56,11 @@ func update_counter():
 
 	counter.text = str(seconds) + "." + str(milliseconds).pad_zeros(3) + "s"
 
-
 func _on_shop_button_pressed():
+	shop_button.visible = false
 	$Shop/ShopPanel.visible = true
 
 
 func _on_close_button_pressed():
 	$Shop/ShopPanel.visible = false
+	shop_button.visible = true
