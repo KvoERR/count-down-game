@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene load_steps=2 format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
 
-[node name="main" type="Control" unique_id=942427354]
+[node name="main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,20 +11,22 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="CounterLabel" type="Label" parent="." unique_id=289787611]
-propagate_maximum_size = true
+[node name="CounterLabel" type="Label" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -36.75
-offset_right = 36.75
-offset_bottom = 23.0
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -0.21600342
+offset_top = -0.13598633
+offset_right = -218.36035
+offset_bottom = -27.679993
 grow_horizontal = 2
+scale = Vector2(2.25, 2.25)
 text = "Клики: 0"
 
-[node name="ClickButton" type="Button" parent="." unique_id=1882528413]
-propagate_maximum_size = true
+[node name="ClickButton" type="Button" parent="."]
 clip_contents = true
 layout_mode = 1
 anchors_preset = 8
@@ -39,26 +41,28 @@ offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AutoClickTimer" type="Timer" parent="." unique_id=1604910000]
+[node name="AutoClickTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Shop" type="VBoxContainer" parent="." unique_id=1621666014]
+[node name="Shop" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Shop" unique_id=169456424]
+[node name="Label" type="Label" parent="Shop"]
 layout_mode = 2
 text = "Shop"
 
-[node name="FingerUpgrade" type="VBoxContainer" parent="Shop" unique_id=1112166262]
+[node name="FingerUpgrade" type="VBoxContainer" parent="Shop"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Shop/FingerUpgrade" unique_id=445973201]
+[node name="Label" type="Label" parent="Shop/FingerUpgrade"]
 layout_mode = 2
 text = "Cut the Tree"
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="pressed" from="ClickButton" to="." method="_on_click_button_pressed"]
 [connection signal="timeout" from="AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
