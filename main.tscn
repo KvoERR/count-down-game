@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dhosukvltmdbj" path="res://shop.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://gw0x024sn0p1" path="res://game.gd" id="2_h2yge"]
 
-[node name="main" type="Control"]
+[node name="main" type="Control" unique_id=860259144]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,8 +13,65 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="CounterLabel" type="Label" parent="."]
+[node name="Shop" type="Node" parent="." unique_id=1336784993]
+script = ExtResource("2_0xm2m")
+
+[node name="ShopPanel" type="Panel" parent="Shop" unique_id=2079763257]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Content" type="VBoxContainer" parent="Shop/ShopPanel" unique_id=657248751]
 layout_mode = 1
+offset_right = 197.0
+offset_bottom = 40.0
+
+[node name="Columns" type="HBoxContainer" parent="Shop/ShopPanel/Content" unique_id=1451358983]
+layout_mode = 2
+
+[node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns" unique_id=861724461]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=1841938364]
+layout_mode = 2
+text = "Bonus per click"
+
+[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=1936052795]
+layout_mode = 2
+
+[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns" unique_id=35409300]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=186609970]
+layout_mode = 2
+text = "Auto click"
+
+[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=954253285]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="Shop/ShopPanel" unique_id=419760485]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+text = "✕"
+
+[node name="Game" type="Node" parent="." unique_id=175131808]
+script = ExtResource("2_h2yge")
+
+[node name="CounterLabel" type="Label" parent="Game" unique_id=895177826]
 anchors_preset = -1
 anchor_left = 0.633
 anchor_top = 0.832
@@ -26,9 +85,8 @@ grow_horizontal = 2
 scale = Vector2(2.25, 2.25)
 text = "Клики: 0"
 
-[node name="ClickButton" type="Button" parent="."]
+[node name="ClickButton" type="Button" parent="Game" unique_id=1479426986]
 clip_contents = true
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -41,11 +99,10 @@ offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="AutoClickTimer" type="Timer" parent="."]
+[node name="AutoClickTimer" type="Timer" parent="Game" unique_id=188262898]
 autostart = true
 
-[node name="ShopButton" type="Button" parent="."]
-layout_mode = 1
+[node name="ShopButton" type="Button" parent="Game" unique_id=774907218]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -55,62 +112,9 @@ offset_bottom = 32.0
 grow_vertical = 2
 text = "Shop"
 
-[node name="ShopPanel" type="Panel" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -250.0
-offset_right = 200.0
-offset_bottom = 250.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Timer" type="Timer" parent="Game" unique_id=2139732920]
 
-[node name="Content" type="VBoxContainer" parent="ShopPanel"]
-layout_mode = 1
-offset_right = 197.0
-offset_bottom = 40.0
-
-[node name="Columns" type="HBoxContainer" parent="ShopPanel/Content"]
-layout_mode = 2
-
-[node name="ClickColumn" type="VBoxContainer" parent="ShopPanel/Content/Columns"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ShopPanel/Content/Columns/ClickColumn"]
-layout_mode = 2
-text = "Bonus per click"
-
-[node name="ClickList" type="VBoxContainer" parent="ShopPanel/Content/Columns/ClickColumn"]
-layout_mode = 2
-
-[node name="AutoColumn" type="VBoxContainer" parent="ShopPanel/Content/Columns"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="ShopPanel/Content/Columns/AutoColumn"]
-layout_mode = 2
-text = "Auto click"
-
-[node name="Autolist" type="VBoxContainer" parent="ShopPanel/Content/Columns/AutoColumn"]
-layout_mode = 2
-
-[node name="CloseButton" type="Button" parent="ShopPanel"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -40.0
-offset_bottom = 40.0
-grow_horizontal = 0
-text = "✕"
-
-[node name="Timer" type="Timer" parent="."]
-
-[connection signal="pressed" from="ClickButton" to="." method="_on_click_button_pressed"]
-[connection signal="timeout" from="AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
-[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
-[connection signal="pressed" from="ShopPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Shop/ShopPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Game/ClickButton" to="." method="_on_click_button_pressed"]
+[connection signal="timeout" from="Game/AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
+[connection signal="pressed" from="Game/ShopButton" to="." method="_on_shop_button_pressed"]
