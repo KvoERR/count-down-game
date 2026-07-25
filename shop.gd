@@ -35,7 +35,7 @@ var upgrades = [
 		"name": "Factory",
 		"desc": "-1/сек",
 		"price": 50,
-		"value": -1,
+		"value": 1,
 		"currency": "waste"
 		
 	},
@@ -44,7 +44,7 @@ var upgrades = [
 		"name": "Industrial Complex",
 		"desc": "-10/сек",
 		"price": 500,
-		"value": -10,
+		"value": 10,
 		"currency": "waste"
 		
 	},
@@ -53,7 +53,7 @@ var upgrades = [
 		"name": "Megalopolis",
 		"desc": "-100/сек",
 		"price": 500,
-		"value": -100,
+		"value": 100,
 		"currency": "waste"
 		
 	}
