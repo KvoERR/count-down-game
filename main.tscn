@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dhosukvltmdbj" path="res://shop.gd" id="2_0xm2m"]
@@ -18,7 +18,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycdy4"]
 
-[node name="main" type="Control"]
+[node name="main" type="Control" unique_id=1261708395]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,51 +27,48 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="Shop" type="Node" parent="."]
+[node name="Shop" type="Node" parent="." unique_id=1968122100]
 script = ExtResource("2_0xm2m")
 
 [node name="ShopPanel" type="Panel" parent="Shop" unique_id=2079763257]
 visible = false
 anchors_preset = 4
-anchor_left = 0.5
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_top = -250.0
-offset_right = 400.0
-offset_bottom = 250.0
-grow_horizontal = 2
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
 grow_vertical = 2
 
-[node name="Content" type="VBoxContainer" parent="Shop/ShopPanel"]
+[node name="Content" type="VBoxContainer" parent="Shop/ShopPanel" unique_id=826859424]
 layout_mode = 1
 offset_right = 197.0
 offset_bottom = 40.0
 
-[node name="Columns" type="HBoxContainer" parent="Shop/ShopPanel/Content"]
+[node name="Columns" type="HBoxContainer" parent="Shop/ShopPanel/Content" unique_id=1579309883]
 layout_mode = 2
 
-[node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns"]
+[node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns" unique_id=150444897]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
+[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=656770296]
 layout_mode = 2
 text = "Bonus per click"
 
-[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
+[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/ClickColumn" unique_id=1923043095]
 layout_mode = 2
 
-[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns"]
+[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns" unique_id=1755561017]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
+[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=1121322371]
 layout_mode = 2
 text = "Auto click"
 
-[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
+[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/AutoColumn" unique_id=576045225]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="Shop/ShopPanel"]
+[node name="CloseButton" type="Button" parent="Shop/ShopPanel" unique_id=602153362]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -81,10 +78,10 @@ offset_bottom = 40.0
 grow_horizontal = 0
 text = "✕"
 
-[node name="Game" type="Node" parent="."]
+[node name="Game" type="Node" parent="." unique_id=166438130]
 script = ExtResource("2_h2yge")
 
-[node name="CounterLabel" type="Label" parent="Game"]
+[node name="CounterLabel" type="Label" parent="Game" unique_id=1721454101]
 anchors_preset = -1
 anchor_left = 0.633
 anchor_top = 0.832
@@ -99,7 +96,7 @@ theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 45
 text = "Клики: 0"
 
-[node name="ClickButton" type="Button" parent="Game"]
+[node name="ClickButton" type="Button" parent="Game" unique_id=1835074406]
 texture_filter = 1
 clip_contents = true
 anchors_preset = 8
@@ -122,10 +119,10 @@ icon = ExtResource("5_272bh")
 flat = true
 expand_icon = true
 
-[node name="AutoClickTimer" type="Timer" parent="Game"]
+[node name="AutoClickTimer" type="Timer" parent="Game" unique_id=544492259]
 autostart = true
 
-[node name="ShopButton" type="Button" parent="Game"]
+[node name="ShopButton" type="Button" parent="Game" unique_id=1960416968]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -135,9 +132,9 @@ offset_bottom = 32.0
 grow_vertical = 2
 text = "Shop"
 
-[node name="Timer" type="Timer" parent="Game"]
+[node name="Timer" type="Timer" parent="Game" unique_id=812998144]
 
-[node name="Background" type="TextureRect" parent="Game"]
+[node name="Background" type="TextureRect" parent="Game" unique_id=1205479681]
 z_index = -1
 texture_filter = 1
 offset_right = 1151.0
@@ -145,68 +142,16 @@ offset_bottom = 645.0
 mouse_filter = 2
 texture = ExtResource("6_5vw27")
 
-[node name="Interface" type="Node" parent="."]
-
-[node name="DeathLabel" type="Label" parent="Interface"]
-anchors_preset = -1
-anchor_left = 0.633
-anchor_top = 0.832
-anchor_right = 0.88900006
-anchor_bottom = 0.91
-offset_left = -328.216
-offset_top = -509.136
-offset_right = -523.1279
-offset_bottom = -506.67993
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_7mycd")
-theme_override_font_sizes/font_size = 40
-text = "0"
-
-[node name="WarLabel" type="Label" parent="Interface"]
-anchors_preset = -1
-anchor_left = 0.633
-anchor_top = 0.832
-anchor_right = 0.88900006
-anchor_bottom = 0.91
-offset_left = -494.216
-offset_top = -509.136
-offset_right = -689.12787
-offset_bottom = -506.68
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_7mycd")
-theme_override_font_sizes/font_size = 40
-text = "0"
-
-[node name="WasteLabel" type="Label" parent="Interface"]
-anchors_preset = -1
-anchor_left = 0.633
-anchor_top = 0.832
-anchor_right = 0.88900006
-anchor_bottom = 0.91
-offset_left = -652.216
-offset_top = -509.136
-offset_right = -847.12805
-offset_bottom = -506.68
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("4_7mycd")
-theme_override_font_sizes/font_size = 40
-text = "0"
-
-[node name="Background" type="TextureRect" parent="Interface"]
-z_index = -1
-texture_filter = 1
-offset_right = 1151.0
-offset_bottom = 645.0
-mouse_filter = 2
-texture = ExtResource("7_272bh")
-
 [node name="ClickStats" type="Label" parent="Game" unique_id=1878796662]
-anchors_preset = 1
+anchors_preset = 3
 anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = -122.0
-offset_bottom = 75.0
+offset_top = -75.0
 grow_horizontal = 0
+grow_vertical = 0
 text = "ClickStatsLabel
 Text:
 Damage/click: 1"
@@ -225,6 +170,61 @@ grow_vertical = 2
 text = "AutoStatsLabel
 Text:
 Damage/sec: 0"
+
+[node name="Interface" type="Node" parent="." unique_id=825599992]
+
+[node name="DeathLabel" type="Label" parent="Interface" unique_id=1743091783]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -328.216
+offset_top = -509.136
+offset_right = -523.1279
+offset_bottom = -506.67993
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="WarLabel" type="Label" parent="Interface" unique_id=375009719]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -494.216
+offset_top = -509.136
+offset_right = -689.12787
+offset_bottom = -506.68
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="WasteLabel" type="Label" parent="Interface" unique_id=78948475]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -652.216
+offset_top = -509.136
+offset_right = -847.12805
+offset_bottom = -506.68
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="Background" type="TextureRect" parent="Interface" unique_id=874446948]
+z_index = -1
+texture_filter = 1
+offset_right = 1151.0
+offset_bottom = 645.0
+mouse_filter = 2
+texture = ExtResource("7_272bh")
 
 [connection signal="pressed" from="Shop/ShopPanel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Game/ClickButton" to="." method="_on_click_button_pressed"]
