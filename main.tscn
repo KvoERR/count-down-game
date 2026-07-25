@@ -39,4 +39,26 @@ offset_bottom = 19.5
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="AutoClickTimer" type="Timer" parent="." unique_id=1604910000]
+autostart = true
+
+[node name="Shop" type="VBoxContainer" parent="." unique_id=1621666014]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Shop" unique_id=169456424]
+layout_mode = 2
+text = "Shop"
+
+[node name="FingerUpgrade" type="VBoxContainer" parent="Shop" unique_id=1112166262]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Shop/FingerUpgrade" unique_id=445973201]
+layout_mode = 2
+text = "Cut the Tree"
+
 [connection signal="pressed" from="ClickButton" to="." method="_on_click_button_pressed"]
+[connection signal="timeout" from="AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
