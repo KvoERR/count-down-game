@@ -1,20 +1,22 @@
-[gd_scene load_steps=11 format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene load_steps=13 format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
-[ext_resource type="FontFile" uid="uid://b3emhib22rg6s" path="res://assets/font/GeistPixel-Regular-VariableFont_ELSH.ttf" id="2_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://drjqrhoxmabvg" path="res://assets/img/earth.png" id="3_1bvp3"]
-[ext_resource type="Texture2D" uid="uid://di47h1m717it4" path="res://assets/img/interface.png" id="3_lquwl"]
-[ext_resource type="Texture2D" uid="uid://bxldgwnejwu4q" path="res://assets/img/fon.png" id="4_1bvp3"]
+[ext_resource type="Script" uid="uid://dhosukvltmdbj" path="res://shop.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://gw0x024sn0p1" path="res://game.gd" id="2_h2yge"]
+[ext_resource type="FontFile" uid="uid://b3emhib22rg6s" path="res://assets/font/GeistPixel-Regular-VariableFont_ELSH.ttf" id="4_7mycd"]
+[ext_resource type="Texture2D" uid="uid://drjqrhoxmabvg" path="res://assets/img/earth.png" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://bxldgwnejwu4q" path="res://assets/img/fon.png" id="6_5vw27"]
+[ext_resource type="Texture2D" uid="uid://di47h1m717it4" path="res://assets/img/interface.png" id="7_272bh"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0xm2m"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kek77"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h2yge"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4c57u"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1bvp3"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_efxa6"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lquwl"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dg77c"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7mycd"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycdy4"]
 
 [node name="main" type="Control"]
 layout_mode = 3
@@ -25,130 +27,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="Interface" type="Control" parent="."]
-anchors_preset = 0
-offset_left = 3.0
-offset_top = 2.0
-offset_right = 1145.0
-offset_bottom = 635.0
+[node name="Shop" type="Node" parent="."]
+script = ExtResource("2_0xm2m")
 
-[node name="LackCount" type="Label" parent="Interface"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.64100003
-anchor_top = 0.83000004
-anchor_right = 0.64400005
-anchor_bottom = 0.83000004
-offset_left = -328.02203
-offset_top = -497.39
-offset_right = -160.47809
-offset_bottom = -388.39
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_1bvp3")
-theme_override_font_sizes/font_size = 40
-text = "0
-"
-
-[node name="WarCount" type="Label" parent="Interface"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.64100003
-anchor_top = 0.83000004
-anchor_right = 0.64400005
-anchor_bottom = 0.83000004
-offset_left = -497.02203
-offset_top = -497.39
-offset_right = -329.47815
-offset_bottom = -388.39
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_1bvp3")
-theme_override_font_sizes/font_size = 40
-text = "0
-"
-
-[node name="WasteCount" type="Label" parent="Interface"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.64100003
-anchor_top = 0.83000004
-anchor_right = 0.64400005
-anchor_bottom = 0.83000004
-offset_left = -652.02203
-offset_top = -497.39
-offset_right = -484.4781
-offset_bottom = -388.39
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_1bvp3")
-theme_override_font_sizes/font_size = 40
-text = "0
-"
-
-[node name="Env" type="TextureRect" parent="Interface"]
-layout_mode = 0
-offset_left = -3.0
-offset_top = -1.5
-offset_right = 1148.0
-offset_bottom = 648.0
-texture = ExtResource("3_lquwl")
-
-[node name="CounterLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.64100003
-anchor_top = 0.83000004
-anchor_right = 0.64400005
-anchor_bottom = 0.83000004
-offset_left = 3.512024
-offset_top = -10.470032
-offset_right = 171.05597
-offset_bottom = 50.52997
-grow_horizontal = 2
-theme_override_fonts/font = ExtResource("2_1bvp3")
-theme_override_font_sizes/font_size = 40
-text = "Клики: 0"
-
-[node name="ClickButton" type="Button" parent="."]
-texture_filter = 1
-clip_contents = true
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -151.0
-offset_top = -150.0
-offset_right = 146.51501
-offset_bottom = 153.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/normal = SubResource("StyleBoxEmpty_0xm2m")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_h2yge")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_1bvp3")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_lquwl")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_7mycd")
-icon = ExtResource("3_1bvp3")
-flat = true
-icon_alignment = 1
-expand_icon = true
-
-[node name="AutoClickTimer" type="Timer" parent="."]
-autostart = true
-
-[node name="ShopButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -32.0
-offset_right = 65.0
-offset_bottom = 32.0
-grow_vertical = 2
-text = "Shop"
-
-[node name="ShopPanel" type="Panel" parent="."]
+[node name="ShopPanel" type="Panel" parent="Shop"]
 visible = false
-layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -161,35 +44,35 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="VBoxContainer" parent="ShopPanel"]
+[node name="Content" type="VBoxContainer" parent="Shop/ShopPanel"]
 layout_mode = 1
 offset_right = 197.0
 offset_bottom = 40.0
 
-[node name="Columns" type="HBoxContainer" parent="ShopPanel/Content"]
+[node name="Columns" type="HBoxContainer" parent="Shop/ShopPanel/Content"]
 layout_mode = 2
 
-[node name="ClickColumn" type="VBoxContainer" parent="ShopPanel/Content/Columns"]
+[node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ShopPanel/Content/Columns/ClickColumn"]
+[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
 layout_mode = 2
 text = "Bonus per click"
 
-[node name="ClickList" type="VBoxContainer" parent="ShopPanel/Content/Columns/ClickColumn"]
+[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
 layout_mode = 2
 
-[node name="AutoColumn" type="VBoxContainer" parent="ShopPanel/Content/Columns"]
+[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="ShopPanel/Content/Columns/AutoColumn"]
+[node name="Label" type="Label" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
 layout_mode = 2
 text = "Auto click"
 
-[node name="Autolist" type="VBoxContainer" parent="ShopPanel/Content/Columns/AutoColumn"]
+[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
 layout_mode = 2
 
-[node name="CloseButton" type="Button" parent="ShopPanel"]
+[node name="CloseButton" type="Button" parent="Shop/ShopPanel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -199,20 +82,126 @@ offset_bottom = 40.0
 grow_horizontal = 0
 text = "✕"
 
-[node name="Timer" type="Timer" parent="."]
+[node name="Game" type="Node" parent="."]
+script = ExtResource("2_h2yge")
 
-[node name="Backround" type="TextureRect" parent="."]
-z_index = -1
-z_as_relative = false
+[node name="CounterLabel" type="Label" parent="Game"]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = 17.783997
+offset_top = -41.135986
+offset_right = -98.12805
+offset_bottom = -28.679993
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 45
+text = "Клики: 0"
+
+[node name="ClickButton" type="Button" parent="Game"]
 texture_filter = 1
-layout_mode = 0
-offset_top = 0.5
-offset_right = 1154.0
-offset_bottom = 647.0
-mouse_filter = 2
-texture = ExtResource("4_1bvp3")
+clip_contents = true
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.0
+offset_top = -165.0
+offset_right = 178.0
+offset_bottom = 167.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kek77")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_4c57u")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_efxa6")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_dg77c")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ycdy4")
+icon = ExtResource("5_272bh")
+flat = true
+expand_icon = true
 
-[connection signal="pressed" from="ClickButton" to="." method="_on_click_button_pressed"]
-[connection signal="timeout" from="AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
-[connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
-[connection signal="pressed" from="ShopPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[node name="AutoClickTimer" type="Timer" parent="Game"]
+autostart = true
+
+[node name="ShopButton" type="Button" parent="Game"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -32.0
+offset_right = 65.0
+offset_bottom = 32.0
+grow_vertical = 2
+text = "Shop"
+
+[node name="Timer" type="Timer" parent="Game"]
+
+[node name="Background" type="TextureRect" parent="Game"]
+z_index = -1
+texture_filter = 1
+offset_right = 1151.0
+offset_bottom = 645.0
+mouse_filter = 2
+texture = ExtResource("6_5vw27")
+
+[node name="Interface" type="Node" parent="."]
+
+[node name="DeathLabel" type="Label" parent="Interface"]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -328.216
+offset_top = -509.136
+offset_right = -523.1279
+offset_bottom = -506.67993
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="WarLabel" type="Label" parent="Interface"]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -494.216
+offset_top = -509.136
+offset_right = -689.12787
+offset_bottom = -506.68
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="WasteLabel" type="Label" parent="Interface"]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -652.216
+offset_top = -509.136
+offset_right = -847.12805
+offset_bottom = -506.68
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_7mycd")
+theme_override_font_sizes/font_size = 40
+text = "0"
+
+[node name="Background" type="TextureRect" parent="Interface"]
+z_index = -1
+texture_filter = 1
+offset_right = 1151.0
+offset_bottom = 645.0
+mouse_filter = 2
+texture = ExtResource("7_272bh")
+
+[connection signal="pressed" from="Shop/ShopPanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Game/ClickButton" to="." method="_on_click_button_pressed"]
+[connection signal="timeout" from="Game/AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
+[connection signal="pressed" from="Game/ShopButton" to="." method="_on_shop_button_pressed"]
