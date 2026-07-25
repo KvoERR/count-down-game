@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dhosukvltmdbj" path="res://shop.gd" id="2_0xm2m"]
@@ -32,7 +32,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("10_ycdy4")
 }],
-"loop": true,
+"loop": 1,
 "name": &"default",
 "speed": 20.0
 }]
@@ -51,7 +51,7 @@ script/source = "extends AnimatedSprite2D
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycdy4"]
 
-[node name="main" type="Control"]
+[node name="main" type="Control" unique_id=1183412078]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -60,7 +60,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ig7tw")
 
-[node name="Background" type="AnimatedSprite2D" parent="."]
+[node name="Background" type="AnimatedSprite2D" parent="." unique_id=129504420]
 z_index = -1
 texture_filter = 1
 position = Vector2(576.5, 329)
@@ -71,10 +71,10 @@ frame_progress = 0.20609315
 speed_scale = 0.5
 script = SubResource("GDScript_dg77c")
 
-[node name="Shop" type="Node" parent="."]
+[node name="Shop" type="Node" parent="." unique_id=2072220438]
 script = ExtResource("2_0xm2m")
 
-[node name="ShopPanel" type="Panel" parent="Shop"]
+[node name="ShopPanel" type="Panel" parent="Shop" unique_id=2079763257]
 visible = false
 z_index = 1
 anchors_preset = 8
@@ -85,63 +85,73 @@ anchor_bottom = 0.5
 offset_left = -250.0
 offset_top = -200.0
 offset_right = 250.0
-offset_bottom = 200.0
+offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Content" type="VBoxContainer" parent="Shop/ShopPanel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Shop/ShopPanel" unique_id=1469357629]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -108.5
-offset_right = 108.5
-offset_bottom = 40.0
+anchor_bottom = 0.5
+offset_left = -112.5
+offset_top = -175.0
+offset_right = 112.5
+offset_bottom = 175.0
 grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="Content" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer" unique_id=735067614]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 100
 
-[node name="Columns" type="HBoxContainer" parent="Shop/ShopPanel/Content"]
+[node name="Columns" type="HBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content" unique_id=920407680]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns"]
+[node name="ClickColumn" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content/Columns" unique_id=1418396021]
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
+[node name="HSeparator2" type="HSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/ClickColumn" unique_id=1130220032]
 layout_mode = 2
 
-[node name="BonusPerClick" type="Label" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
+[node name="BonusPerClick" type="Label" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/ClickColumn" unique_id=656770296]
 layout_mode = 2
 text = "Bonus per click"
 
-[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
+[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/ClickColumn" unique_id=1368937471]
 layout_mode = 2
 
-[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/ClickColumn"]
+[node name="ClickList" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/ClickColumn" unique_id=1923043095]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="VSeparator" type="VSeparator" parent="Shop/ShopPanel/Content/Columns"]
+[node name="VSeparator" type="VSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns" unique_id=857831960]
 layout_mode = 2
 
-[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns"]
+[node name="AutoColumn" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content/Columns" unique_id=1755561017]
 layout_mode = 2
 
-[node name="HSeparator2" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
+[node name="HSeparator2" type="HSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/AutoColumn" unique_id=110967927]
 layout_mode = 2
 
-[node name="AutoClick" type="Label" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
+[node name="AutoClick" type="Label" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/AutoColumn" unique_id=1121322371]
 layout_mode = 2
 text = "Auto click"
 
-[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
+[node name="HSeparator" type="HSeparator" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/AutoColumn" unique_id=1102420493]
 layout_mode = 2
 
-[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/Content/Columns/AutoColumn"]
+[node name="Autolist" type="VBoxContainer" parent="Shop/ShopPanel/ScrollContainer/Content/Columns/AutoColumn" unique_id=576045225]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="CloseButton" type="Button" parent="Shop/ShopPanel"]
+[node name="CloseButton" type="Button" parent="Shop/ShopPanel" unique_id=1089807603]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -152,10 +162,10 @@ offset_bottom = 36.000004
 grow_horizontal = 0
 text = "✕"
 
-[node name="Game" type="Node" parent="."]
+[node name="Game" type="Node" parent="." unique_id=2118080181]
 script = ExtResource("2_h2yge")
 
-[node name="CounterLabel" type="Label" parent="Game"]
+[node name="CounterLabel" type="Label" parent="Game" unique_id=1006715061]
 anchors_preset = -1
 anchor_left = 0.633
 anchor_top = 0.832
@@ -170,7 +180,7 @@ theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 45
 text = "Клики: 0"
 
-[node name="Earth" type="Button" parent="Game"]
+[node name="Earth" type="Button" parent="Game" unique_id=2079295522]
 texture_filter = 1
 clip_contents = true
 anchors_preset = 8
@@ -194,10 +204,10 @@ flat = true
 expand_icon = true
 script = ExtResource("11_ycdy4")
 
-[node name="AutoClickTimer" type="Timer" parent="Game"]
+[node name="AutoClickTimer" type="Timer" parent="Game" unique_id=1311135482]
 autostart = true
 
-[node name="ShopButton" type="Button" parent="Game"]
+[node name="ShopButton" type="Button" parent="Game" unique_id=147823606]
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -208,10 +218,10 @@ offset_bottom = 32.0
 grow_vertical = 2
 text = "Shop"
 
-[node name="Timer" type="Timer" parent="Game"]
+[node name="Timer" type="Timer" parent="Game" unique_id=242651382]
 wait_time = 10.0
 
-[node name="ClickStats" type="Label" parent="Game"]
+[node name="ClickStats" type="Label" parent="Game" unique_id=165576066]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -227,7 +237,7 @@ theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
-[node name="AutoStats" type="Label" parent="Game"]
+[node name="AutoStats" type="Label" parent="Game" unique_id=580402808]
 anchors_preset = 6
 anchor_left = 1.0
 anchor_top = 0.5
@@ -244,37 +254,55 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 horizontal_alignment = 2
 
-[node name="Interface" type="Node" parent="."]
+[node name="Interface" type="Node" parent="." unique_id=50596580]
 script = ExtResource("7_5vw27")
 
-[node name="DeathLabel" type="Label" parent="Interface"]
-offset_left = 416.0
-offset_top = 30.0
-offset_right = 439.0
-offset_bottom = 83.0
+[node name="DeathLabel" type="Label" parent="Interface" unique_id=104724489]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -328.216
+offset_top = -509.136
+offset_right = -523.1279
+offset_bottom = -506.67993
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
-[node name="WarLabel" type="Label" parent="Interface"]
-offset_left = 248.0
-offset_top = 31.0
-offset_right = 271.0
-offset_bottom = 84.0
+[node name="WarLabel" type="Label" parent="Interface" unique_id=1158434990]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -494.216
+offset_top = -509.136
+offset_right = -689.12787
+offset_bottom = -506.68
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
-[node name="WasteLabel" type="Label" parent="Interface"]
-offset_left = 82.0
-offset_top = 31.0
-offset_right = 105.0
-offset_bottom = 84.0
+[node name="WasteLabel" type="Label" parent="Interface" unique_id=2134559734]
+anchors_preset = -1
+anchor_left = 0.633
+anchor_top = 0.832
+anchor_right = 0.88900006
+anchor_bottom = 0.91
+offset_left = -652.216
+offset_top = -509.136
+offset_right = -847.12805
+offset_bottom = -506.68
+grow_horizontal = 2
 theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 40
 text = "0"
 
-[node name="Background" type="TextureRect" parent="Interface"]
+[node name="Background" type="TextureRect" parent="Interface" unique_id=1434364789]
 z_index = -1
 texture_filter = 1
 offset_right = 1151.0
