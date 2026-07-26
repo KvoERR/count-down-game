@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cmmsrcgakd23r"]
+
+[node name="Airplane" type="RigidBody2D"]

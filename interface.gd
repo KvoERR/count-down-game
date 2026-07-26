@@ -10,35 +10,37 @@ var waste_count = 0
 var war_count = 0
 var death_count = 0
 
-func add_resource(coef):
-	var type = randi_range(1, 3)
-	var amount = int(coef * randi_range(1, 9))
-	
-	if amount>0:
-	
-		var type_name = ""
-		var label = null
+func add_rand_resource(amount):
+	var type = randi_range(0, 2)
+	ui_update(type,amount)
+	bonus_sound.play()
 		
-		if type == 1:
-			waste_count += amount
-			waste.text = str(waste_count)
-			type_name = "🗑️"
-			label = waste
-		elif type == 2:
-			war_count += amount
-			war.text = str(war_count)
-			type_name = "⚔️"
-			label = war
-		elif type == 3:
-			death_count += amount
-			death.text = str(death_count)
-			type_name = "💀"
-			label = death
+func add_resource(idx,amount):
+	ui_update(idx,amount)
+	bonus_sound.play()
 		
-		# Создаем всплывающее число
-		create_floating_number(label.global_position, "+" + str(amount), type_name)
-		bonus_sound.play()
+func ui_update(idx,amount):
+	var type_name = ""
+	var label = null
 		
+	if idx == 0:
+		waste_count += amount
+		waste.text = str(waste_count)
+		type_name = "🗑️"
+		label = waste
+	elif idx == 1:
+		war_count += amount
+		war.text = str(war_count)
+		type_name = "⚔️"
+		label = war
+	elif idx == 2:
+		death_count += amount
+		death.text = str(death_count)
+		type_name = "💀"
+		label = death
+		
+	create_floating_number(label.global_position, "+" + str(amount), type_name)	
+
 func spend_resource(currency, amount):
 	match currency:
 		"waste":

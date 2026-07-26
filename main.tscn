@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bjn4naudn08u5"]
+[gd_scene load_steps=28 format=3 uid="uid://bjn4naudn08u5"]
 
 [ext_resource type="Script" uid="uid://bn011qiu3e508" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dhosukvltmdbj" path="res://shop.gd" id="2_0xm2m"]
@@ -16,7 +16,9 @@
 [ext_resource type="Script" uid="uid://ko6pfgemch4q" path="res://earth.gd" id="11_ycdy4"]
 [ext_resource type="AudioStream" uid="uid://knq1kp7lx40k" path="res://assets/sfx/tick.wav" id="13_vivmo"]
 [ext_resource type="AudioStream" uid="uid://dwelo6n23m5r4" path="res://assets/sfx/click.wav" id="14_w48qg"]
+[ext_resource type="Script" uid="uid://dg1587fntg0kq" path="res://asteroid_spawner.gd" id="15_cegan"]
 [ext_resource type="AudioStream" uid="uid://cwn0tkwjafyy2" path="res://assets/sfx/bonus.wav" id="16_2cqfq"]
+[ext_resource type="PackedScene" uid="uid://dgbj2o8v7ajn0" path="res://scenes/asteroid.tscn" id="16_82xsv"]
 [ext_resource type="AudioStream" uid="uid://cun6jxh8yyq7y" path="res://assets/sfx/countdown.wav" id="18_074og"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ycdy4"]
@@ -52,6 +54,9 @@ animations = [{
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ycdy4"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_82xsv"]
+radius = 10.113617
+
 [node name="main" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -59,6 +64,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ig7tw")
 
 [node name="Background" type="AnimatedSprite2D" parent="."]
@@ -73,6 +79,7 @@ speed_scale = 0.5
 position = Vector2(-411, -159)
 stream = ExtResource("8_yaehf")
 volume_db = -10.09
+attenuation = 2.7320814
 
 [node name="Shop" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
@@ -169,6 +176,7 @@ text = "✕"
 script = ExtResource("2_h2yge")
 
 [node name="CounterLabel" type="Label" parent="Game"]
+z_index = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
@@ -181,7 +189,8 @@ theme_override_fonts/font = ExtResource("4_7mycd")
 theme_override_font_sizes/font_size = 45
 text = "Клики: 0"
 
-[node name="Earth" type="Button" parent="Game"]
+[node name="Earth3" type="Button" parent="Game"]
+visible = false
 texture_filter = 1
 clip_contents = true
 anchors_preset = 8
@@ -203,17 +212,12 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ycdy4")
 icon = ExtResource("5_272bh")
 flat = true
 expand_icon = true
-script = ExtResource("11_ycdy4")
-
-[node name="ClickSound" type="AudioStreamPlayer2D" parent="Game/Earth"]
-position = Vector2(-411, -159)
-stream = ExtResource("14_w48qg")
-volume_db = -10.0
 
 [node name="AutoClickTimer" type="Timer" parent="Game"]
 autostart = true
 
 [node name="ShopButton" type="Button" parent="Game"]
+z_index = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
@@ -228,6 +232,7 @@ text = "Shop"
 wait_time = 10.0
 
 [node name="ClickStats" type="Label" parent="Game"]
+z_index = 1
 offset_left = 227.0
 offset_top = 124.0
 offset_right = 250.0
@@ -237,6 +242,7 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="AutoStats" type="Label" parent="Game"]
+z_index = 1
 offset_left = 30.0
 offset_top = 124.0
 offset_right = 53.0
@@ -250,10 +256,36 @@ horizontal_alignment = 2
 stream = ExtResource("13_vivmo")
 max_distance = 2008.0
 
+[node name="AsteroidSpawner" type="Node" parent="Game"]
+script = ExtResource("15_cegan")
+asteroid_scene = ExtResource("16_82xsv")
+
+[node name="SpawnTimer" type="Timer" parent="Game/AsteroidSpawner"]
+
+[node name="Earth" type="Area2D" parent="Game"]
+position = Vector2(579, 331)
+script = ExtResource("11_ycdy4")
+
+[node name="ClickSound" type="AudioStreamPlayer2D" parent="Game/Earth"]
+position = Vector2(-577, -329)
+stream = ExtResource("14_w48qg")
+volume_db = -10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="Game/Earth"]
+texture_filter = 1
+scale = Vector2(5.639997, 5.639997)
+texture = ExtResource("5_272bh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Game/Earth"]
+position = Vector2(3, -3)
+scale = Vector2(16.720001, 17.039999)
+shape = SubResource("CircleShape2D_82xsv")
+
 [node name="Interface" type="Node" parent="."]
 script = ExtResource("7_5vw27")
 
 [node name="DeathLabel" type="Label" parent="Interface"]
+z_index = 1
 offset_left = 411.0
 offset_top = 30.0
 offset_right = 434.0
@@ -263,6 +295,7 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="WarLabel" type="Label" parent="Interface"]
+z_index = 1
 offset_left = 235.0
 offset_top = 30.0
 offset_right = 258.0
@@ -272,6 +305,7 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="WasteLabel" type="Label" parent="Interface"]
+z_index = 1
 offset_left = 95.0
 offset_top = 30.0
 offset_right = 118.0
@@ -281,7 +315,7 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="Background" type="TextureRect" parent="Interface"]
-z_index = -1
+z_index = 1
 texture_filter = 1
 offset_right = 1151.0
 offset_bottom = 645.0
@@ -298,6 +332,7 @@ stream = ExtResource("18_074og")
 autoplay = true
 
 [connection signal="pressed" from="Shop/ShopPanel/CloseButton" to="." method="_on_close_button_pressed"]
-[connection signal="pressed" from="Game/Earth" to="." method="_on_click_button_pressed"]
+[connection signal="pressed" from="Game/Earth3" to="." method="_on_click_button_pressed"]
 [connection signal="timeout" from="Game/AutoClickTimer" to="." method="_on_auto_click_timer_timeout"]
 [connection signal="pressed" from="Game/ShopButton" to="." method="_on_shop_button_pressed"]
+[connection signal="timeout" from="Game/AsteroidSpawner/SpawnTimer" to="Game/AsteroidSpawner" method="_on_spawn_timer_timeout"]

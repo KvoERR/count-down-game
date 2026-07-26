@@ -5,7 +5,7 @@ extends Node
 
 @onready var tick_sound = $TickSound
 
-signal bonus_achieved(amount)
+signal bonus_achieved(coef)
 
 var clicks = 85000
 var click_power = 1
@@ -20,27 +20,22 @@ func auto_click():
 	clicks -= auto_clicks
 	if auto_clicks>0:
 		create_floating_number(label.global_position, "-"+str(auto_clicks), Color(1,1,0))
-	if clicks <= bonus_level:
-		while bonus_level>clicks:
-			bonus_achieved.emit(resource_coef)
-			bonus_level -= bonus_delta
-	if clicks < 0:
-		clicks = 0
-		game_end()
-		
+	get_bonuses()
+	check_game_end()
 		
 func click():
 	clicks -= click_power
 	create_floating_number(label.global_position+Vector2(20, 0), "-"+str(click_power), Color(0,1,0))
+	get_bonuses()
+	check_game_end()
+
+func get_bonuses():
 	if clicks <= bonus_level:
 		while bonus_level>clicks:
-			bonus_achieved.emit(resource_coef)
+			var amount = int(resource_coef * randi_range(1, 9))
+			if amount>0:
+				bonus_achieved.emit(amount)
 			bonus_level -= bonus_delta
-
-	if clicks < 0:
-		clicks = 0
-		game_end()
-		
 
 func tick(time_to_click):
 	clicks += int(time_to_click)
@@ -75,5 +70,7 @@ func create_floating_number(position, text, color = Color(1, 1, 1)):
 	tween.parallel().tween_property(label, "modulate:a", 0, 1.2)
 	tween.tween_callback(label.queue_free)
 	
-func game_end():
-	get_tree().change_scene_to_file("res://scenes/end.tscn")
+func check_game_end():
+	if clicks < 0:
+		clicks = 0
+		get_tree().change_scene_to_file("res://scenes/end.tscn")
