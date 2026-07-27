@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://cmmsrcgakd23r"]
+[gd_scene load_steps=3 format=3 uid="uid://cmmsrcgakd23r"]
+
+[ext_resource type="Texture2D" uid="uid://b8rikxruedpf5" path="res://assets/img/airplane.png" id="1_gmati"]
+[ext_resource type="Script" uid="uid://dhpcm66s7i1rr" path="res://scenes/airplane.gd" id="1_vl3ih"]
 
 [node name="Airplane" type="RigidBody2D"]
+script = ExtResource("1_vl3ih")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gmati")
+
+[node name="Area2D" type="Area2D" parent="."]
+priority = 1
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(32, -9.5, -27, -26.7, -27, -24.3, -32, -21.8, -32, -15.299999, -23.2, -12.1, -25.7, -10, -27.6, -10, -29, -3.2000008, -29, -0.20000076, -24.8, 4, -24, 4, -24, 9.599998, -18.3, 10.900002, -29, 16.8, -29, 22.3, -18, 27.2, -18, 28.2, -15.9, 29.3, 31.599998, -2)

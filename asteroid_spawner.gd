@@ -2,8 +2,8 @@ extends Node
 
 @export var asteroid_scene: PackedScene
 
-@export var min_delay: float = 1.0
-@export var max_delay: float = 5.0
+@export var min_delay: float = 15.0
+@export var max_delay: float = 55.0
 
 @onready var timer: Timer = $SpawnTimer
 

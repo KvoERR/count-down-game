@@ -51,24 +51,23 @@ func apply_upgrade(data):
 		auto_clicks += data.value
 	
 func create_floating_number(position, text, color = Color(1, 1, 1)):
-	# Создаем временную надпись
-	var label = Label.new()
-	label.text = text
-	label.add_theme_font_size_override("font_size", 28)
-	label.add_theme_color_override("font_color", color)
+	var new_label = Label.new()
+	new_label.text = text
+	new_label.add_theme_font_size_override("font_size", 28)
+	new_label.add_theme_color_override("font_color", color)
 	
 	# Позиционируем
-	label.global_position = position + Vector2(0, 40)
-	label.z_index = 100
+	new_label.global_position = position + Vector2(0, 40)
+	new_label.z_index = 100
 	
 	# Добавляем на сцену
-	get_tree().current_scene.add_child(label)
+	get_tree().current_scene.add_child(new_label)
 	
 	# Анимация
 	var tween = create_tween()
-	tween.parallel().tween_property(label, "position:y", position.y + 100, 1.2)
-	tween.parallel().tween_property(label, "modulate:a", 0, 1.2)
-	tween.tween_callback(label.queue_free)
+	tween.parallel().tween_property(new_label, "position:y", position.y + 100, 1.2)
+	tween.parallel().tween_property(new_label, "modulate:a", 0, 1.2)
+	tween.tween_callback(new_label.queue_free)
 	
 func check_game_end():
 	if clicks < 0:

@@ -4,6 +4,8 @@ extends Control
 @onready var interface = $Interface
 @onready var shop = $Shop
 @onready var asteroid_spawner = $Game/AsteroidSpawner
+@onready var airplane_spawner = $Game/AirplaneSpawner
+
 
 @onready var counter = $Game/CounterLabel
 @onready var timer = $Game/Timer
@@ -28,6 +30,7 @@ func _ready():
 	earth.clicked.connect(_on_click_button_pressed)
 	game.bonus_achieved.connect(_on_bonus_achieved)
 	asteroid_spawner.asteroid_clicked.connect(_on_event_clicked)
+	airplane_spawner.airplane_clicked.connect(_on_event_clicked)
 	
 	shop.upgrade_buy.connect(_on_upgrade_buy)
 	

@@ -11,6 +11,9 @@ func _ready():
 	speed = randf_range(min_speed, max_speed)
 	angular_velocity = randf_range(-2.0, 2.0)
 	
+	var area = $Area2D
+	area.input_event.connect(_on_area_2d_input_event)
+	
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
